@@ -807,34 +807,78 @@
       color: #e75480;
       border-radius: 12px;
     }
-    
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        padding: 15px;
-      }
-      
-      header nav {
-        margin: 15px 0;
-      }
-      
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-      
-      .detail-container {
-        flex-direction: column;
-      }
-      
-      .cart-content, .checkout-content {
-        width: 95%;
-        padding: 20px;
-      }
-      
-      .pagination-controls {
-        padding: 0 15px;
-      }
-    }
+ @media (max-width: 768px) {
+  /* NEW CODE FOR 2-PRODUCT GRID */
+  .shop-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 20px 15px;
+  }
+  
+  .product-card {
+    margin-bottom: 10px;
+  }
+  
+  .product-card img {
+    height: 200px;
+  }
+  
+  .product-card h3 {
+    font-size: 1.1rem;
+    margin: 10px 0 5px;
+  }
+  
+  .product-card p {
+    font-size: 0.85rem;
+    padding: 0 8px;
+  }
+  
+  .product-card .price {
+    font-size: 1rem;
+  }
+  
+  .product-card button {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    margin: 10px 0 15px;
+  }
+  
+  /* YOUR EXISTING MOBILE STYLES (keep these) */
+  header {
+    flex-direction: column;
+    padding: 15px;
+  }
+  
+  header nav {
+    margin: 15px 0;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .detail-container {
+    flex-direction: column;
+  }
+  
+  .cart-content, .checkout-content {
+    width: 95%;
+    padding: 20px;
+  }
+  
+  .pagination-controls {
+    padding: 0 15px;
+  }
+  
+  .floating-cart-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+}   
+ 
   </style>
 </head>
 <body>
@@ -2249,3 +2293,4 @@
 </body>
 
 </html>
+
