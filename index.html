@@ -596,10 +596,9 @@
       color: #ccc;
     }
     
-    /* CORRECTED: Increased input field size */
     .form-group input {
       width: 100%;
-      padding: 16px; /* Increased padding */
+      padding: 16px;
       border: 2px solid #555;
       border-radius: 8px;
       font-size: 1rem;
@@ -687,11 +686,10 @@
       flex-direction: column;
     }
     
-    /* CORRECTED: Increased input field size */
     .contact-form input, 
     .contact-form textarea {
       margin: 8px 0;
-      padding: 16px; /* Increased padding */
+      padding: 16px;
       border: 2px solid #555;
       border-radius: 8px;
       font-size: 1rem;
@@ -825,13 +823,27 @@
         padding: 15px;
       }
       
+     /* --- CORRECTED CODE FOR SINGLE-LINE MOBILE NAV --- */
      header nav {
       margin: 15px 0;
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap; /* Prevents wrapping */
       justify-content: center;
-      gap: 10px 20px;
+      width: 100%;
+      overflow-x: auto; /* Allows horizontal scrolling on very small screens */
+      /* Hide scrollbar for a cleaner look */
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
     }
+    header nav::-webkit-scrollbar { /* Chrome, Safari, Opera */
+      display: none;
+    }
+    header nav a {
+      flex-shrink: 0; /* Prevents menu items from shrinking */
+      padding: 6px 12px; /* Adjusted padding */
+      margin: 0; /* Removed margin to use flexbox gap */
+    }
+    /* --- END OF CORRECTION --- */
     
       .hero h1 {
         font-size: 2.5rem;
@@ -854,16 +866,15 @@
 /* === CHATBOT STYLES START HERE === */
 /* ================================== */
 
-/* --- CORRECTED: Floating Action Button (FAB) for Chat --- */
 #chat-fab {
   position: fixed;
   bottom: 25px;
   left: 25px;
-  width: auto; /* Changed to auto */
-  height: 50px; /* Adjusted height */
-  padding: 0 20px; /* Added padding */
+  width: auto;
+  height: 50px;
+  padding: 0 20px;
   background: linear-gradient(135deg, #e75480, #c44169);
-  border-radius: 25px; /* Makes it a rounded rectangle */
+  border-radius: 25px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: center;
@@ -871,16 +882,15 @@
   cursor: pointer;
   z-index: 1000;
   transition: transform 0.3s ease;
-  color: white; /* Added text color */
-  font-weight: bold; /* Added font weight */
-  font-size: 16px; /* Added font size */
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 #chat-fab:hover {
   transform: scale(1.1);
 }
 
-/* Chat Window */
 #chat-window {
   position: fixed;
   bottom: 100px;
@@ -905,7 +915,6 @@
   pointer-events: none;
 }
 
-/* Chat Header */
 .chat-header {
   background: #e75480;
   color: white;
@@ -929,7 +938,6 @@
   cursor: pointer;
 }
 
-/* Chat Body (Message Area) */
 .chat-body {
   flex-grow: 1;
   padding: 20px;
@@ -937,7 +945,6 @@
   background-color: #2a2a2a;
 }
 
-/* Individual Messages */
 .chat-message {
   display: flex;
   margin-bottom: 15px;
@@ -950,7 +957,6 @@
   line-height: 1.5;
 }
 
-/* AI Messages */
 .chat-message.ai {
   justify-content: flex-start;
 }
@@ -961,7 +967,6 @@
   border-bottom-left-radius: 4px;
 }
 
-/* User Messages */
 .chat-message.user {
   justify-content: flex-end;
   margin-left: auto;
@@ -973,7 +978,6 @@
   border-bottom-right-radius: 4px;
 }
 
-/* Typing Indicator */
 .typing-indicator {
   display: flex;
   align-items: center;
@@ -995,8 +999,6 @@
   40% { transform: scale(1.0); }
 }
 
-
-/* Chat Footer (Input Area) */
 .chat-footer {
   display: flex;
   padding: 10px;
@@ -1061,7 +1063,7 @@
   width: 200%;
   height: 100%;
   display: flex;
-  animation: slideAnimationTwo 8s infinite ease-in-out; /* Slowed down animation */
+  animation: slideAnimationTwo 8s infinite ease-in-out;
   z-index: 1;
 }
 
@@ -3008,7 +3010,6 @@
     return 'https://via.placeholder.com/400x300?text=Image+Not+Found';
   }
 
-  // CORRECTED & CLEANED SCRIPT BLOCK
   function renderProducts(page = 1) {
     currentPage = page;
     const shopContainer = document.getElementById("shop-container");
@@ -3506,3 +3507,4 @@
 </script>
 </body>
 </html>
+
