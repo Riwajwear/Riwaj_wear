@@ -1082,6 +1082,57 @@
   95% { transform: translateX(-50%); }
   100% { transform: translateX(0%); }
 }
+/* --- Hero Button Style --- */
+    .hero-btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 30px;
+      background-color: #e75480;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 30px;
+      border: 2px solid #e75480;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+    }
+    .hero-btn:hover {
+      background-color: transparent;
+      color: #e75480;
+    }
+    /* --- NEW: Back to Top Button Styles --- */
+#back-to-top-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 999;
+  width: 50px;
+  height: 50px;
+  border: none;
+  outline: none;
+  background-color: #e75480;
+  color: white;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+#back-to-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#back-to-top-btn:hover {
+  background-color: #c44169;
+}
+/* --- END: Back to Top Button Styles --- */
   </style>
 </head>
 <body>
@@ -1106,6 +1157,7 @@
   <div class="hero-content">
     <h1>Welcome to Riwaj Wear</h1>
     <p>Tradition with Elegance. Discover our unique collection of traditional and modern clothing.</p>
+     <a href="#shop" class="hero-btn">Shop Now</a>
   </div>
 </section>
 
@@ -1287,7 +1339,7 @@
     </button>
   </div>
 </div>
-
+   <button id="back-to-top-btn" title="Go to top">↑</button>
 <footer>
   <p>© 2025 Riwaj Wear. All rights reserved.</p>
   <div class="social-icons">
@@ -3495,7 +3547,20 @@
   });
 
   chatSessionId = getSessionId();
+// --- NEW: Back to Top Button Script ---
+const backToTopBtn = document.getElementById('back-to-top-btn');
 
+window.onscroll = function() {
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    backToTopBtn.classList.add('show');
+  } else {
+    backToTopBtn.classList.remove('show');
+  }
+};
+
+backToTopBtn.addEventListener('click', function() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 </script>
 </body>
 </html>
