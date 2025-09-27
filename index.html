@@ -1133,6 +1133,29 @@
   background-color: #c44169;
 }
 /* --- END: Back to Top Button Styles --- */
+.tiktok-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #69C9D0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.tiktok-btn:hover {
+  background-color: #50b0b8;
+}
+
+.tiktok-logo {
+  width: 24px;
+  height: 24px;
+}    
   </style>
 </head>
 <body>
@@ -1160,6 +1183,13 @@
      <a href="#shop" class="hero-btn">Shop Now</a>
   </div>
 </section>
+<!-- TikTok Login Button -->
+<a href="https://www.tiktok.com/auth/authorize?client_key=YOUR_CLIENT_KEY&scope=user.info.basic,video.upload&response_type=code&redirect_uri=https://oauth.n8n.cloud/oauth2/callback&state=12345">
+  <button class="tiktok-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/TikTok_logo.svg" alt="TikTok" class="tiktok-logo">
+    Login with TikTok
+  </button>
+</a>
 
 <section id="shop">
   <h2 style="text-align:center; padding:40px 20px 20px; font-size:2.5rem;">Shop Our Collection</h2>
@@ -3566,6 +3596,7 @@ backToTopBtn.addEventListener('click', function() {
 </script>
 </body>
 </html>
+
 
 
 
